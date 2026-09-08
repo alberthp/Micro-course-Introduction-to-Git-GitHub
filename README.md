@@ -1,6 +1,7 @@
 # Micro-course: Introduction to Git & GitHub
 
 > **Author:** Albert Hernansanz (<albert.hernansanz@upf.edu>), Universitat Pompeu Fabra  
+> **Tester:** Joana Gutiérrez, UPF Student  
 > **Course:** Introduction to Programming, UPF  
 > **Goal:** Brief practical introduction to Git (with use of GitHub)  
 > **Format:** Self-paced pre-session + guided hands-on session  
@@ -458,7 +459,7 @@ origin  https://github.com/YOUR_USERNAME/IntroGit_Uxxx.git (push)
 
 To get this URL from GitHub, click the green **Code** button on your repository page and copy the HTTPS URL:
 
-<img src="img/CopyURLtoClipboard.png" alt="Copy repository URL from GitHub" style="max-width: 400px; height: auto;"><br>
+<img src="img/CopyURLtoClipboard.png" alt="Copy repository URL from GitHub" style="max-width: 250px; height: auto;"><br>
 
 This text will now appear on a new line.
 
