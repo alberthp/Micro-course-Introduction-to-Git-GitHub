@@ -1,0 +1,28 @@
+<svg width="100%" viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Problem of working directly on main</title>
+<desc>Timeline showing commits A, B, C on main, with User_1 and User_2 both editing at commit C, leading to a conflict.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#2C2C2A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+<line x1="80" y1="70" x2="520" y2="70" stroke="#5F5E5A" stroke-width="2"/>
+<rect x="40" y="50" width="56" height="24" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="68" y="64" text-anchor="middle" dominant-baseline="central" font-family="monospace" font-size="12" fill="#2C2C2A">main</text>
+<circle cx="160" cy="70" r="14" fill="white" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="160" y="72" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#2C2C2A">A</text>
+<circle cx="280" cy="70" r="14" fill="white" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="280" y="72" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#2C2C2A">B</text>
+<circle cx="400" cy="70" r="14" fill="white" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="400" y="72" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#2C2C2A">C</text>
+<rect x="490" y="50" width="40" height="40" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="510" y="72" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#791F1F">???</text>
+<line x1="400" y1="84" x2="260" y2="140" stroke="#5F5E5A" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="400" y1="84" x2="540" y2="140" stroke="#5F5E5A" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="170" y="140" width="180" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="260" y="160" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="13" font-weight="500" fill="#04342C">User_1 edits here</text>
+<text x="260" y="178" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="11" fill="#0F6E56">pushes first: OK</text>
+<rect x="450" y="140" width="180" height="56" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text x="540" y="160" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="13" font-weight="500" fill="#4A1B0C">User_2 edits here</text>
+<text x="540" y="178" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="11" fill="#993C1D">push rejected!</text>
+</svg>

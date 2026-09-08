@@ -1,0 +1,53 @@
+<svg width="100%" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Before and after Git</title>
+<desc>Left side shows a messy folder with 6 confusingly named files. Right side shows one file with a clean commit timeline.</desc>
+
+<!-- Left panel: Without Git -->
+<rect x="40" y="28" width="270" height="250" rx="12" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="175" y="52" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#791F1F">Without Git</text>
+
+<rect x="64" y="72" width="220" height="24" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="174" y="86" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">lab.cpp</text>
+
+<rect x="64" y="100" width="220" height="24" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="174" y="114" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">lab_v2.cpp</text>
+
+<rect x="64" y="128" width="220" height="24" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="174" y="142" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">lab_final.cpp</text>
+
+<rect x="64" y="156" width="220" height="24" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="174" y="170" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">lab_final_FINAL.cpp</text>
+
+<rect x="64" y="184" width="220" height="24" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="174" y="198" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">lab_definitive.cpp</text>
+
+<rect x="64" y="212" width="220" height="24" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="174" y="226" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">lab_deliverable_FIXED.cpp</text>
+
+<text x="175" y="256" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#A32D2D">Which is the real one?</text>
+
+<!-- Right panel: With Git -->
+<rect x="370" y="28" width="270" height="250" rx="12" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="505" y="52" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#04342C">With Git</text>
+
+<rect x="460" y="72" width="100" height="28" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="510" y="88" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">lab.cpp</text>
+
+<!-- Commit timeline -->
+<line x1="420" y1="120" x2="420" y2="256" stroke="#5F5E5A" stroke-width="1.5"/>
+
+<circle cx="420" cy="130" r="6" fill="white" stroke="#5F5E5A" stroke-width="1"/>
+<text x="436" y="134" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">Initial version</text>
+
+<circle cx="420" cy="162" r="6" fill="white" stroke="#5F5E5A" stroke-width="1"/>
+<text x="436" y="166" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">Add validation</text>
+
+<circle cx="420" cy="194" r="6" fill="white" stroke="#5F5E5A" stroke-width="1"/>
+<text x="436" y="198" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">Fix loop bug</text>
+
+<circle cx="420" cy="226" r="6" fill="white" stroke="#5F5E5A" stroke-width="1"/>
+<text x="436" y="230" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">Final delivery</text>
+
+<text x="505" y="256" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F6E56">Full history, one file</text>
+
+</svg>
