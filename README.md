@@ -1,11 +1,11 @@
 # Micro-course: Introduction to Git & GitHub
 
 > **Author:** Albert Hernansanz (<albert.hernansanz@upf.edu>), Universitat Pompeu Fabra  
-> **Tester:** Joana Gutiérrez, UPF Student  
+> **Testers:** Joana Gutiérrez & Mia Insa, UPF Eng. Student  
 > **Course:** Introduction to Programming, UPF  
 > **Goal:** Brief practical introduction to Git (with use of GitHub)  
 > **Format:** Self-paced pre-session + guided hands-on session  
-> **Version:** 5.1
+> **Version:** 5.2
 
 ---
 
