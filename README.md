@@ -21,7 +21,7 @@
 - [4. Install Visual Studio Code](#4-install-visual-studio-code) 🔧
 - [5. Install Git](#5-install-git) 🔧
 
-**Part 2: Hands-on session (in class)**
+**Part 2: Hands-on session**
 
 - [6. Create a private repository](#6-create-a-private-repository) 🔧
 - [7. Invite a classmate as collaborator](#7-invite-a-classmate-as-collaborator) 🔧
@@ -55,16 +55,16 @@
 
 ## How this course is organized
 
-| Part | When | What you will do |
+| Part | What you will do |
 | ------ | ------ | ----------------- |
-| **Part 1: Pre-session** | Before class (at home) | Understand what a repository is, create your GitHub account, install the tools |
-| **Part 2: Hands-on session** | In class | Create a repo, clone it, edit code, push, branch, merge, collaborate |
+| **Part 1: Pre-session** | Understand what a repository is, create your GitHub account, install the tools |
+| **Part 2: Hands-on session** | Create a repo, clone it, edit code, push, branch, merge, collaborate |
 
 [↑ Back to contents](#contents)
 
 ---
 
-# Part 1: Pre-session (do this before class)
+# Part 1: Pre-session: environment setup
 
 ---
 
