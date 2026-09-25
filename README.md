@@ -7,6 +7,8 @@
 > **Format:** Self-paced pre-session + guided hands-on session  
 > **Version:** 5.2
 
+> **Original Repository:** https://github.com/alberthp/Micro-course-Introduction-to-Git-GitHub.git
+
 ---
 
 <a id="contents"></a>
