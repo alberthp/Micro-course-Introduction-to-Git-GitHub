@@ -1,13 +1,34 @@
 # Micro-course: Introduction to Git & GitHub
 
 > **Author:** Albert Hernansanz (<albert.hernansanz@upf.edu>), Universitat Pompeu Fabra  
-> **Testers:** Joana Gutiérrez & Mia Insa, UPF Eng. Student  
 > **Course:** Introduction to Programming, UPF  
 > **Goal:** Brief practical introduction to Git (with use of GitHub)  
-> **Format:** Self-paced pre-session + guided hands-on session  
-> **Version:** 5.2
+> **Format:** Self-paced, three-part tutorial  
+> **Version:** 7.0
 
-> **Original Repository:** https://github.com/alberthp/Micro-course-Introduction-to-Git-GitHub.git
+---
+
+## About this micro-course
+
+This micro-course is a **mandatory** component of Introduction to Programming. Its goal is to give you a practical foundation in Git and GitHub: the version control tools used by virtually every software team in the industry. By the end, you will be able to track your own code changes, collaborate with a classmate on a shared project, and resolve the conflicts that arise when two people edit the same file.
+
+No prior experience with Git is assumed. You only need a computer, an internet connection, and willingness to follow the steps.
+
+### Who is this for?
+
+First-year students in the Introduction to Programming course at UPF. The tutorial is self-paced: you work through each part on your own, at your own speed, following the instructions step by step.
+
+### Structure and deadlines
+
+The course is divided into three parts that must be completed before the corresponding lab session:
+
+| Complete this part | Before |
+| --- | --- |
+| **Part 1: Setup** | **Lab 1** |
+| **Part 2: Hands-on** | **Lab 2** |
+| **Part 3: Collaboration** | **Lab 3** |
+
+Each lab session assumes you have already finished the corresponding part. If you arrive at the lab without completing it, you will not be able to follow the session.
 
 ---
 
@@ -15,28 +36,32 @@
 
 ## Contents
 
-**Part 1: Pre-session (before class)**
+**Part 1: Setup**
 
 - [1. What is a code repository?](#1-what-is-a-code-repository)
 - [2. Why is this important?](#2-why-is-this-important)
 - [3. Create your GitHub account](#3-create-your-github-account) 🔧
 - [4. Install Visual Studio Code](#4-install-visual-studio-code) 🔧
 - [5. Install Git](#5-install-git) 🔧
+- [6. The terminal](#6-the-terminal)
 
-**Part 2: Hands-on session**
+**Part 2: Hands-on**
 
-- [6. Create a private repository](#6-create-a-private-repository) 🔧
-- [7. Invite a classmate as collaborator](#7-invite-a-classmate-as-collaborator) 🔧
-- [8. Folder structure of a Git project](#8-folder-structure-of-a-git-project)
-- [9. Download a local copy (clone)](#9-download-a-local-copy-clone) 🔧
-- [10. The Git pipeline: how changes travel](#10-the-git-pipeline-how-changes-travel)
-- [11. Create your first file](#11-create-your-first-file) 🔧
-- [12. Your first commit and push](#12-your-first-commit-and-push) 🔧
-- [13. Modify, diff, and commit again](#13-modify-diff-and-commit-again) 🔧
-- [14. Practice: complete the pipeline yourself](#14-practice-complete-the-pipeline-yourself) 🔧
-- [15. Branches](#15-branches) 🔧
-- [16. Common problems](#16-common-problems)
+- [7. Create a public repository](#7-create-a-public-repository) 🔧
+- [8. Invite a classmate as collaborator](#8-invite-a-classmate-as-collaborator) 🔧
+- [9. Folder structure of a Git project](#9-folder-structure-of-a-git-project)
+- [10. Download a local copy (clone)](#10-download-a-local-copy-clone) 🔧
+- [11. The Git pipeline: how changes travel](#11-the-git-pipeline-how-changes-travel)
+- [12. Create your first file](#12-create-your-first-file) 🔧
+- [13. Your first commit and push](#13-your-first-commit-and-push) 🔧
+- [14. Modify, diff, and commit again](#14-modify-diff-and-commit-again) 🔧
+- [15. Practice: complete the pipeline yourself](#15-practice-complete-the-pipeline-yourself) 🔧
+
+**Part 3: Collaboration**
+
+- [16. Branches](#16-branches) 🔧
 - [17. Working with teams](#17-working-with-teams) 🔧
+- [18. Common problems](#18-common-problems)
 
 **Reference**
 
@@ -55,18 +80,7 @@
 
 > 🔧 = sections where you must do something on your computer.
 
-## How this course is organized
-
-| Part | What you will do |
-| ------ | ------ | ----------------- |
-| **Part 1: Pre-session** | Understand what a repository is, create your GitHub account, install the tools |
-| **Part 2: Hands-on session** | Create a repo, clone it, edit code, push, branch, merge, collaborate |
-
-[↑ Back to contents](#contents)
-
----
-
-# Part 1: Pre-session: environment setup
+# Part 1: Setup
 
 ---
 
@@ -76,7 +90,7 @@ A **repository** (or **repo**) is a folder that contains your project files **pl
 
 Think of it as a project folder with a built-in time machine: you can go back and recover any previous version, see who changed what and when, and work with other people without overwriting each other's work.
 
-**Important:** changes you make to files are not automatically part of Git history. You must explicitly tell Git which changes to record (this is covered in section 10).
+**Important:** changes you make to files are not automatically part of Git history. You must explicitly tell Git which changes to record (this is covered in section 11).
 
 There are two copies of a repository:
 
@@ -243,7 +257,13 @@ git --version
 
 If Git is not installed, macOS will prompt you to install the Xcode Command Line Tools. Accept and wait for the installation to finish.
 
-Alternatively, install via Homebrew:
+Alternatively (optional), you can use [Homebrew](https://brew.sh/), a package manager for macOS that lets you install software from the terminal. **This is not required**: the method above is enough. If you already have Homebrew or want to install it:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Then install Git:
 
 ```bash
 brew install git
@@ -298,37 +318,95 @@ git --version
 
 You should see something like `git version 2.45.0`. If you get an error, Git is not installed correctly.
 
+[↑ Back to contents](#contents)
+
 ---
 
-### ✅ Pre-session checklist
+## 6. The terminal
 
-Before coming to class, make sure you have:
+A terminal (also called command line, console, or shell) is a text-based interface where you type commands instead of clicking buttons. Git was designed to be used from a terminal, and most professional developers work with it this way.
+
+You type a command, press **Enter**, and the computer executes it and prints the result. That is the whole interaction model.
+
+### How to open a terminal
+
+**Windows:**
+
+1. Press `Win + S`, type **Terminal** and open **Windows Terminal**.
+2. Alternatively, press `Win + R`, type `cmd`, and press Enter.
+
+Windows offers several terminal environments: **Command Prompt** (cmd), **PowerShell**, and **Git Bash**. For this course we recommend **Git Bash**, which is installed automatically with Git for Windows (section 5). It provides a Unix-like environment with the same commands used on macOS and Linux, so every example in this tutorial works without changes.
+
+To open Git Bash directly: press `Win + S`, type **Git Bash**, and open it.
+
+**macOS:**
+
+Open **Terminal** (Finder > Applications > Utilities > Terminal), or press `Cmd + Space`, type **Terminal**, and press Enter.
+
+macOS is a Unix-based system, so its built-in terminal already speaks the same language as Git. No additional shell such as Git Bash is needed.
+
+**Linux:**
+
+Open your distribution's terminal application. Common shortcuts: `Ctrl + Alt + T` (Ubuntu, Fedora) or search for **Terminal** in the application menu.
+
+### Using the terminal inside VS Code
+
+VS Code has a built-in terminal panel. Open it with `` Ctrl + ` `` or from the menu: **Terminal > New Terminal**. You can configure which shell it uses:
+
+1. Open the terminal panel.
+2. Click the **▾** dropdown arrow next to the **+** button (top-right of the terminal panel).
+3. Select **Git Bash**, **PowerShell**, **Command Prompt**, or any other installed shell.
+
+You can also set Git Bash as the default terminal profile on Windows: open **Settings** (`Ctrl + ,`), search for `terminal default profile windows`, and select **Git Bash**.
+
+> 💡 **Tip (Windows):** always verify that your VS Code terminal says **bash** (not PowerShell or cmd) before running the commands in this tutorial. The dropdown lets you switch at any time.
+
+![Opening Git Bash in VS Code terminal](img/OpeningTerminalGitBashVSC.png)
+
+[↑ Back to contents](#contents)
+
+---
+
+### ✅ Setup checklist
+
+Before continuing to Part 2, make sure you have:
 
 - [ ] A GitHub account created with your `@upf.edu` email
 - [ ] Applied for the GitHub Student Developer Pack
 - [ ] Visual Studio Code installed
 - [ ] Git installed (verified that `git --version` works in your terminal)
+- [ ] You know how to open a terminal on your system (section 6)
+
+### 📦 Part 1 deliverable
+
+Send your professor the URL of your GitHub profile page. The URL has the form:
+
+```
+https://github.com/YOUR_USERNAME
+```
+
+Your professor will verify that your account exists and uses your `@upf.edu` email.
 
 
 ***NEXT:***
-> **Course materials:** the full version of this course, including all diagrams and hands-on exercises, is available at: [https://github.com/alberthp/Micro-course-Introduction-to-Git-GitHub](https://github.com/alberthp/Micro-course-Introduction-to-Git-GitHub). Part 2 (hands-on session) will follow that manual step by step.
+> **Course materials:** the full version of this course, including all diagrams and hands-on exercises, is available at: [https://github.com/alberthp/Micro-course-Introduction-to-Git-GitHub](https://github.com/alberthp/Micro-course-Introduction-to-Git-GitHub). Part 2 (hands-on) follows that manual step by step.
 
 
 [↑ Back to contents](#contents)
 
 ---
 
-# Part 2: Hands-on session (in class)
+# Part 2: Hands-on
 
-> **Windows users:** all terminal commands in this course must be run in **Git Bash** (installed with Git in section 5), not in Command Prompt (cmd.exe) or PowerShell. Git Bash understands Unix paths like `~/Documents/`.
+> **Windows users reminder:** all terminal commands in Part 2 must be run in **Git Bash**, not in Command Prompt or PowerShell. If you are not sure how to open it, review [section 6](#6-the-terminal).
 
 > 🔧 **First step:** before creating your own repository, go to the course repository on GitHub and click the **Fork** button (top right). This creates a copy of the course materials in your own GitHub account. You will then clone from your own fork, not from the instructor's account. This is how open-source collaboration works: fork first, then clone your fork.
 
 ---
 
-## 6. Create a private repository
+## 7. Create a public repository
 
-> 🔧 **Your turn:** create your own private repository on GitHub.
+> 🔧 **Your turn:** create your own public repository on GitHub.
 
 You will create your own repository on GitHub. Each student creates their own.
 
@@ -345,18 +423,18 @@ Replace `Uxxx` with your student U-number. Example: `IntroGit_U123456`.
 
 ![Creating a new repository on GitHub](img/CreatingNewRepoGitHub.png)
 
-1. Fill in the form:
+3. Fill in the form:
 
 | Field | Value |
 | ------- | ------- |
 | Repository name | `IntroGit_Uxxx` (your U-number) |
-| Description | `Introduction to Git - class exercise` |
-| Visibility | 🔘 **Private** |
+| Description | `Introduction to Git - exercise` |
+| Visibility | 🔘 **Public** |
 | Add a README file | ☑ **Check this box** |
 | .gitignore template | None (see [section A](#a-the-gitignore-file-what-not-to-track) in Additional Material) |
 | License | None |
 
-1. Click **Create repository**.
+4. Click **Create repository**.
 
 You now have a remote repository on GitHub with one file (`README.md`).
 
@@ -364,7 +442,7 @@ You now have a remote repository on GitHub with one file (`README.md`).
 
 ---
 
-## 7. Invite a classmate as collaborator
+## 8. Invite a classmate as collaborator
 
 > 🔧 **Your turn:** invite a classmate to your repository, and accept their invitation to theirs.
 
@@ -386,7 +464,7 @@ You will work in pairs. Invite a classmate to your repository.
 
 ---
 
-## 8. Folder structure of a Git project
+## 9. Folder structure of a Git project
 
 Professional projects follow a standard folder layout. Here is a typical structure:
 
@@ -396,11 +474,10 @@ my-project/
 ├── LICENSE              ← Legal terms for code reuse
 ├── .gitignore           ← List of files Git should ignore
 ├── src/                 ← Source code
-│   ├── index.html
-│   ├── style.css
-│   └── app.js
+│   ├── hello_world.py
+│   └── utils.py
 ├── tests/               ← Automated tests
-│   └── test_app.js
+│   └── test_hello.py
 └── docs/                ← Documentation
     └── guide.md
 ```
@@ -415,13 +492,13 @@ my-project/
 | `tests/` | Contains tests that verify the code works |
 | `docs/` | Extended documentation |
 
-For today's exercise, we keep it simple: just `README.md` and an `index.html`.
+For today's exercise, we keep it simple: just `README.md` and a `hello_world.py`.
 
 [↑ Back to contents](#contents)
 
 ---
 
-## 9. Download a local copy (clone)
+## 10. Download a local copy (clone)
 
 > 🔧 **Your turn:** clone your repository to your computer.
 
@@ -429,7 +506,7 @@ Cloning means downloading the remote repository to your computer, including its 
 
 ![Git clone diagram](img/git-clone.svg)
 
-Open a terminal, navigate to the folder where you want the project, and run:
+Open a terminal (**Git Bash** on Windows, see [section 6](#6-the-terminal)), navigate to the folder where you want the project, and run:
 
 ```bash
 mkdir -p ~/Documents/git-projects
@@ -439,6 +516,10 @@ cd IntroGit_Uxxx
 ```
 
 Replace `YOUR_USERNAME` with your GitHub username.
+
+> 💡 `mkdir -p` creates a folder (and any missing parent folders). The `~` symbol means your home directory. Both work in Git Bash on Windows, in the macOS Terminal, and in Linux. If you are using Windows **cmd** or **PowerShell** instead of Git Bash, these commands will not work: switch to Git Bash as explained in section 6.
+
+> **⚠️ Important:** Do not place your Git projects inside a folder synced by Google Drive, Dropbox, OneDrive, or similar cloud-storage services. These tools sync files in the background and can overwrite or corrupt Git's internal `.git/` folder, leading to repository corruption and lost history. Use a regular local folder such as `~/Documents/git-projects`.
 
 ### What happened?
 
@@ -461,7 +542,7 @@ origin  https://github.com/YOUR_USERNAME/IntroGit_Uxxx.git (push)
 
 To get this URL from GitHub, click the green **Code** button on your repository page and copy the HTTPS URL:
 
-<img src="img/CopyURLtoClipboard.png" alt="Copy repository URL from GitHub" style="max-width: 250px; height: auto;"><br>
+<img src="img/CopyURLtoClipboard.png" alt="Copy repository URL from GitHub" style="max-width: 400px; height: auto;"><br>
 
 This text will now appear on a new line.
 
@@ -475,7 +556,7 @@ IntroGit_Uxxx/
 
 ---
 
-## 10. The Git pipeline: how changes travel
+## 11. The Git pipeline: how changes travel
 
 This is the most important concept. Every change you make goes through a specific pipeline before it reaches GitHub.
 
@@ -500,42 +581,49 @@ To download changes made by others (or from another computer), use `git pull`. T
 
 ---
 
-## 11. Create your first file
+## 12. Create your first file
 
-> 🔧 **Your turn:** create this file in your project and test it in your browser.
+> 🔧 **Your turn:** create this file in your project and test it in your terminal.
 
-We will create a simple HTML file. HTML does not require installing anything: you can open it directly in a web browser.
+We will create a simple Python file. Python is already installed on most systems and you can run it directly from the terminal.
 
 ### Step 1: Create the file
 
-Open VS Code. Open your project folder (`IntroGit_Uxxx`). Create a new file named `index.html` with this content:
+Open VS Code. Open your project folder (`IntroGit_Uxxx`). Create a new file named `hello_world.py` with this content:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My First Git Project</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-    <p>This is my first file tracked by Git.</p>
-    <p>Author: YOUR NAME HERE</p>
-</body>
-</html>
+```python
+# My first file tracked by Git
+# Author: YOUR NAME HERE
+
+def greet(name):
+    """Return a welcome message for the given name."""
+    return f"Hello, {name}! Welcome to Git."
+
+# This block runs only when the file is executed directly,
+# not when it is imported as a module from another file.
+if __name__ == "__main__":
+    print(greet("World"))  # Call the greet function and print the result
 ```
 
 Replace `YOUR NAME HERE` with your actual name.
 
 ### Step 2: Test it locally
 
-Open `index.html` in your web browser (double-click the file or drag it into the browser). You should see a page that says "Hello World!".
+Open a terminal (or the VS Code integrated terminal) and run:
+
+```bash
+python hello_world.py
+```
+
+You should see: `Hello, World! Welcome to Git.`
+
+> **Note:** on some systems the command is `python3` instead of `python`. If `python` does not work, try `python3 hello_world.py`.
 
 [↑ Back to contents](#contents)
 
 ---
 
-## 12. Your first commit and push
+## 13. Your first commit and push
 
 > 🔧 **Your turn:** follow these steps to push your file to GitHub.
 
@@ -556,7 +644,7 @@ You will see something like:
 ```
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-        index.html
+        hello_world.py
 ```
 
 This means Git sees a new file but is **not tracking it yet**. You need to tell Git to start tracking it.
@@ -564,14 +652,14 @@ This means Git sees a new file but is **not tracking it yet**. You need to tell 
 **Step 2: Stage the file**
 
 ```bash
-git add index.html
+git add hello_world.py
 ```
 
 Run `git status` again:
 
 ```
 Changes to be committed:
-        new file:   index.html
+        new file:   hello_world.py
 ```
 
 The file is now staged (ready to be included in the next commit). Staging is like putting items in a box before sealing it.
@@ -579,16 +667,16 @@ The file is now staged (ready to be included in the next commit). Staging is lik
 **Step 3: Commit (record a version)**
 
 ```bash
-git commit -m "Add index.html with Hello World page"
+git commit -m "Add hello_world.py with greet function"
 ```
 
 The `-m` flag lets you write a short message describing what you did. This message will appear in the project history, so **always write a meaningful message** that explains what changed and why.
 
 Good messages:
 
-- `"Add index.html with Hello World page"`
+- `"Add hello_world.py with greet function"`
 - `"Fix typo in author name"`
-- `"Add navigation menu to index.html"`
+- `"Add input validation to greet"`
 
 Bad messages:
 
@@ -609,11 +697,11 @@ git push -u origin main
 
 After this command, your code is on GitHub. Anyone with access to the repository can now see it.
 
-> **Note:** we are pushing directly to `main` for now to keep things simple. In section 15 you will learn why this is not recommended and how to use branches instead.
+> **Note:** we are pushing directly to `main` for now to keep things simple. In section 16 you will learn why this is not recommended and how to use branches instead.
 
 **Step 5: Verify on GitHub**
 
-Go to your repository page on GitHub and refresh. You should see `index.html` listed alongside `README.md`.
+Go to your repository page on GitHub and refresh. You should see `hello_world.py` listed alongside `README.md`.
 
 > **Git vs GitHub in action:** the commit existed only on your computer until you pushed it. Git (local) recorded the version; GitHub (remote) now hosts it. These are two separate steps by design.
 
@@ -621,7 +709,7 @@ Go to your repository page on GitHub and refresh. You should see `index.html` li
 
 ---
 
-## 13. Modify, diff, and commit again
+## 14. Modify, diff, and commit again
 
 > 🔧 **Your turn:** edit your file and use `git diff` to inspect the changes.
 
@@ -629,15 +717,25 @@ Now let's modify the file and use `git diff` to see exactly what changed.
 
 ### Step 1: Edit the file
 
-Open `index.html` in VS Code. Add a new line inside `<body>`:
+Open `hello_world.py` in VS Code. Add a new function after the `greet` function:
 
-```html
-<body>
-    <h1>Hello World!</h1>
-    <p>This is my first file tracked by Git.</p>
-    <p>Author: YOUR NAME HERE</p>
-    <p>This line was added in commit 2.</p>
-</body>
+```python
+# My first file tracked by Git
+# Author: YOUR NAME HERE
+
+def greet(name):
+    """Return a welcome message for the given name."""
+    return f"Hello, {name}! Welcome to Git."
+
+def farewell(name):
+    """Return a goodbye message for the given name."""
+    return f"Goodbye, {name}! See you next commit."
+
+# This block runs only when the file is executed directly,
+# not when it is imported as a module from another file.
+if __name__ == "__main__":
+    print(greet("World"))     # Call the greet function and print the result
+    print(farewell("World"))  # Call the farewell function and print the result
 ```
 
 Save the file.
@@ -655,16 +753,22 @@ git diff
 Output:
 
 ```diff
-diff --git a/index.html b/index.html
---- a/index.html
-+++ b/index.html
-@@ -7,5 +7,6 @@
-     <h1>Hello World!</h1>
-     <p>This is my first file tracked by Git.</p>
-     <p>Author: YOUR NAME HERE</p>
-+    <p>This line was added in commit 2.</p>
- </body>
- </html>
+diff --git a/hello_world.py b/hello_world.py
+--- a/hello_world.py
++++ b/hello_world.py
+@@ -4,5 +4,12 @@
+ def greet(name):
++    """Return a welcome message for the given name."""
+     return f"Hello, {name}! Welcome to Git."
+ 
++def farewell(name):
++    """Return a goodbye message for the given name."""
++    return f"Goodbye, {name}! See you next commit."
++
+ if __name__ == "__main__":
+-    print(greet("World"))
++    print(greet("World"))     # Call the greet function and print the result
++    print(farewell("World"))  # Call the farewell function and print the result
 ```
 
 - Lines starting with `+` are **additions** (new content).
@@ -674,7 +778,7 @@ diff --git a/index.html b/index.html
 After staging a file, `git diff` shows nothing (the changes are no longer "unstaged"). To verify this, stage the file first and then compare:
 
 ```bash
-git add index.html
+git add hello_world.py
 git diff              # shows nothing (changes are now staged)
 git diff --staged     # shows the staged changes
 ```
@@ -687,7 +791,7 @@ VS Code also shows diffs visually: click the file name in the Source Control pan
 
 ---
 
-## 14. Practice: complete the pipeline yourself
+## 15. Practice: complete the pipeline yourself
 
 > 🔧 **Your turn:** complete the full pipeline on your own, without looking at the previous section.
 
@@ -696,7 +800,7 @@ Now it is your turn. Push the modification you just made by repeating the full p
 ```bash
 git status          # 1. See what changed
 git add .           # 2. Stage all eligible changes (respecting .gitignore rules)
-git commit -m "Add second paragraph to index.html"   # 3. Commit
+git commit -m "Add farewell function to hello_world.py"   # 3. Commit
 git push                                              # 4. Push to GitHub (no need for "origin main" after -u)
 ```
 
@@ -713,8 +817,8 @@ git log --oneline
 Output:
 
 ```
-b3d7f2a Add second paragraph to index.html
-a1c9e4d Add index.html with Hello World page
+b3d7f2a Add farewell function to hello_world.py
+a1c9e4d Add hello_world.py with greet function
 f0e2d1b Initial commit
 ```
 
@@ -726,7 +830,123 @@ On GitHub, click the **"commits"** link (or the clock icon) on your repository p
 
 ---
 
-## 15. Branches
+### 📦 Part 2 deliverable
+
+Send your professor the URL of your GitHub repository. The URL has the form:
+
+```
+https://github.com/YOUR_USERNAME/IntroGit_Uxxx
+```
+
+Because your repository is **public**, your professor can open it directly and verify:
+
+- The repository exists and follows the naming convention (`IntroGit_Uxxx`).
+- It contains the `hello_world.py` file with the `greet` and `farewell` functions.
+- The commit history shows multiple meaningful commits (not just one).
+
+> 💡 **Public** means anyone with the link can view your repository. They cannot modify it unless you invite them as a collaborator.
+
+[↑ Back to contents](#contents)
+
+---
+
+# Part 3: Collaboration
+
+In this part you will work as a team. Before starting, your group must prepare a shared repository by following the steps below.
+
+### Prepare the group repository
+
+> 🔧 **Your turn (one student per group):** the steps below must be done by the student whose repository will become the group repo. The other group members wait until the setup is complete.
+
+Your group will use **one** of the existing individual repositories as the group repository. Choose one member's repo (e.g. `IntroGit_U123456`) and follow these steps:
+
+**Step 1: Rename the repository on GitHub**
+
+The repo owner:
+
+1. Go to the repository page on GitHub.
+2. Click **Settings** (tab at the top).
+3. Under **General**, find the **Repository name** field.
+4. Change the name from `IntroGit_Uxxx` to your group identifier (e.g. `IntroGit_G01`). Your professor will tell you which group identifier to use.
+5. Click **Rename**.
+
+![Renaming a repository on GitHub](img/RenamingRepo.png)
+
+> 💡 GitHub automatically redirects the old URL to the new one, so any existing links will still work. However, your local clone still points to the old URL and needs to be updated (next step).
+
+**Step 2: Update the local clone (repo owner only)**
+
+The student who owns the repo must update the remote URL in their local clone:
+
+```bash
+cd ~/Documents/git-projects/IntroGit_Uxxx
+git remote set-url origin https://github.com/YOUR_USERNAME/IntroGit_G01.git
+```
+
+Verify the change:
+
+```bash
+git remote -v
+```
+
+You should see the new URL:
+
+```
+origin  https://github.com/YOUR_USERNAME/IntroGit_G01.git (fetch)
+origin  https://github.com/YOUR_USERNAME/IntroGit_G01.git (push)
+```
+
+**Step 3: Make the repository private**
+
+The repo is currently public (from Part 2). For the collaborative part, make it private so that other groups cannot see your work:
+
+1. Go to the repository page on GitHub.
+2. Click **Settings**.
+3. Scroll down to the **Danger Zone** section.
+4. Click **Change visibility**.
+5. Select **Private** and confirm.
+
+![Change visibility in Settings](img/Change_Permissions_Settings.png)
+
+![Danger Zone: change visibility](img/Change_Permissions_DangerZone.png)
+
+> ⚠️ Once the repository is private, only collaborators (people you explicitly invite) can see it.
+
+**Step 4: Invite your group mates and professor**
+
+1. In the repository **Settings**, click **Collaborators** in the left sidebar.
+2. Click **Add people**.
+3. Add each group mate by their GitHub username or `@upf.edu` email.
+4. Add your professor's GitHub username (your professor will provide it).
+5. Each person will receive an email invitation. They must **accept** it before they can access the repo.
+
+For group mates, select the **Write** role (they need to push code). For the professor, select the **Read** role (view-only access to verify your work).
+
+> 💡 **Repository roles on GitHub:**
+>
+> | Role | Can view | Can push | Can change settings |
+> | --- | --- | --- | --- |
+> | **Read** | ✅ | ❌ | ❌ |
+> | **Write** | ✅ | ✅ | ❌ |
+> | **Admin** | ✅ | ✅ | ✅ |
+
+**Step 5: Other group members clone the repo**
+
+The other members of the group (those who are **not** the repo owner) clone the renamed repository:
+
+```bash
+cd ~/Documents/git-projects
+git clone https://github.com/OWNER_USERNAME/IntroGit_G01.git
+cd IntroGit_G01
+```
+
+Replace `OWNER_USERNAME` with the GitHub username of the student who owns the repository.
+
+> ✅ **Group setup complete.** All members now have a local copy of the shared group repository. You can proceed with sections 16, 17, and 18.
+
+---
+
+## 16. Branches
 
 ### The problem: working directly on `main`
 
@@ -754,7 +974,7 @@ A branch is an **independent line of development**. It lets you make commits wit
 
 | Prefix | Usage | Example |
 | -------- | ------- | --------- |
-| `feature/` | New functionality | `feature/navigation-menu` |
+| `feature/` | New functionality | `feature/add-utils` |
 | `fix/` | Bug fix | `fix/broken-link` |
 | `docs/` | Documentation changes | `docs/update-readme` |
 
@@ -765,15 +985,15 @@ A branch is an **independent line of development**. It lets you make commits wit
 **Step 1: Create a new branch and switch to it**
 
 ```bash
-git switch -c feature/add-menu
+git switch -c feature/add-utils
 ```
 
-This creates a branch called `feature/add-menu` and switches to it. You are no longer on `main`.
+This creates a branch called `feature/add-utils` and switches to it. You are no longer on `main`.
 
 - `switch` is the command for changing branches.
 - `-c` means "create" (create the branch and switch to it in one step).
 
-> **Older syntax:** in many tutorials and online answers you will see `git checkout -b feature/add-menu`, which does the same thing. We use `git switch` because it is the modern, dedicated command for switching branches. `git checkout` is still valid but is also used for other purposes (like restoring files), which can be confusing.
+> **Older syntax:** in many tutorials and online answers you will see `git checkout -b feature/add-utils`, which does the same thing. We use `git switch` because it is the modern, dedicated command for switching branches. `git checkout` is still valid but is also used for other purposes (like restoring files), which can be confusing.
 
 **Step 2: Verify which branch you are on**
 
@@ -784,7 +1004,7 @@ git branch
 Output:
 
 ```
-* feature/add-menu
+* feature/add-utils
   main
 ```
 
@@ -794,35 +1014,45 @@ The `*` indicates your current branch.
 
 **Step 3: Edit the code on your branch**
 
-Open `index.html` and add a navigation menu:
+Open `hello_world.py` and add a utility function that counts words in a string:
 
-```html
-<body>
-    <nav>
-        <a href="#">Home</a> |
-        <a href="#">About</a> |
-        <a href="#">Contact</a>
-    </nav>
-    <h1>Hello World!</h1>
-    <p>This is my first file tracked by Git.</p>
-    <p>Author: YOUR NAME HERE</p>
-    <p>This line was added in commit 2.</p>
-</body>
+```python
+# My first file tracked by Git
+# Author: YOUR NAME HERE
+
+def greet(name):
+    """Return a welcome message for the given name."""
+    return f"Hello, {name}! Welcome to Git."
+
+def farewell(name):
+    """Return a goodbye message for the given name."""
+    return f"Goodbye, {name}! See you next commit."
+
+def count_words(text):
+    """Count the number of words in the given text."""
+    words = text.split()  # Split the string by whitespace into a list
+    return len(words)     # Return the number of elements in the list
+
+# This block runs only when the file is executed directly
+if __name__ == "__main__":
+    print(greet("World"))
+    print(farewell("World"))
+    print(f"Word count: {count_words('Hello World Welcome to Git')}")  # Should print 5
 ```
 
 **Step 4: Commit on your branch**
 
 ```bash
 git add .
-git commit -m "Add navigation menu"
+git commit -m "Add count_words utility function"
 ```
 
-This commit exists **only** on the branch `feature/add-menu`. The `main` branch is untouched.
+This commit exists **only** on the branch `feature/add-utils`. The `main` branch is untouched.
 
 **Step 5: Push the branch to GitHub**
 
 ```bash
-git push -u origin feature/add-menu
+git push -u origin feature/add-utils
 ```
 
 Let's break down each part of this command:
@@ -830,7 +1060,7 @@ Let's break down each part of this command:
 - `git push`: send commits from your local repository to the remote.
 - `-u` (or `--set-upstream`): links your local branch to the remote branch so Git remembers the connection. After this, you only need `git push`.
 - `origin`: the nickname for your remote repository on GitHub (set automatically when you cloned).
-- `feature/add-menu`: the name of the branch you are pushing. This creates the branch on GitHub if it does not exist yet.
+- `feature/add-utils`: the name of the branch you are pushing. This creates the branch on GitHub if it does not exist yet.
 
 Review in your repository web that, now, there are two branches:
 
@@ -851,10 +1081,10 @@ Once you are happy with the changes, bring them into `main`:
 ```bash
 git switch main             # switch back to main
 git pull                    # get any remote changes first
-git merge feature/add-menu  # bring the branch changes into main
+git merge feature/add-utils  # bring the branch changes into main
 git push                    # push the updated main to GitHub
 ```
-Move to GitHub web, in `main` branch, open `index.html` and changes must be there.
+Move to GitHub web, in `main` branch, open `hello_world.py` and the new function must be there.
 
 > **What happens during merge?** If nobody else changed `main` while you were on your branch, Git simply adds your commits on top (this is called a "fast-forward"). If `main` did change, Git creates a merge commit that combines both lines of work.
 
@@ -867,8 +1097,8 @@ After merging, the branch has served its purpose. The branch can be deleted:
 Before applying the following code, check in GitHub repo web that there are two branches.
 
 ```bash
-git branch -d feature/add-menu          # delete locally
-git push origin --delete feature/add-menu   # delete on GitHub
+git branch -d feature/add-utils          # delete locally
+git push origin --delete feature/add-utils   # delete on GitHub
 ```
 
 Now, check again the GitHub repo web and check that now, only main branch exists. If not, something has gone wrong. 
@@ -886,7 +1116,237 @@ Now, check again the GitHub repo web and check that now, only main branch exists
 
 ---
 
-## 16. Common problems
+## 17. Working with teams
+
+Now you will work with your group on the shared repository you prepared at the beginning of Part 3.
+
+### 17.1 Verify the group setup
+
+> 🔧 **Your turn (all group members):** verify everyone has the group repository ready before continuing.
+
+All group members should have:
+
+- A local clone of the group repository (`IntroGit_G01` or your group identifier).
+- Collaborator access with **Write** permissions (accepted the invitation).
+
+If any member has not cloned the group repo yet, go back to the "Prepare the group repository" section at the beginning of Part 3.
+
+### 17.2 Verify your clone
+
+> 🔧 **Your turn:** confirm your local clone points to the group repository.
+
+```bash
+cd ~/Documents/git-projects/IntroGit_G01
+git remote -v
+```
+
+You should see the group repository URL. If you still see your individual repo URL, you need to either update it (if you are the repo owner) or clone the group repo fresh (if you are another member). See the "Prepare the group repository" section.
+
+> **Directory check:** you may have both your individual project (`IntroGit_Uxxx`) and the group project (`IntroGit_G01`) inside `~/Documents/git-projects/`. Before running Git commands, always check you are in the correct folder:
+>
+> ```
+> pwd              # confirm the folder
+> git remote -v    # confirm which GitHub repository this clone points to
+> ```
+
+### 17.3 One person modifies, the other syncs
+
+> 🔧 **Your turn (coordinate with your classmate):** User_1 does the steps below first, then User_2 syncs.
+
+![Collaboration flow: push and pull](img/git-collaboration-flow.svg)
+
+> **Before you start:** run `pwd` in your terminal to confirm you are inside the group repository folder (`IntroGit_G01`).
+
+**User_1** (the repository owner):
+
+1. Create a branch and add a new function to `hello_world.py`:
+
+```bash
+git switch -c feature/footer
+```
+
+Add this function after the existing ones:
+
+```python
+def show_footer():
+    """Print a footer with course information."""
+    print("---")
+    print("© 2026 - Introduction to Programming, UPF")
+```
+
+And add `show_footer()` at the end of the `if __name__` block.
+
+2. Commit and push:
+
+```bash
+git add . # Stage all local changes (modified and new files) for the commit
+git commit -m "Add footer section" # Save a local commit snapshot with a descriptive message
+git push -u origin feature/footer # Upload the branch to GitHub and set upstream tracking
+```
+
+3. Merge into main:
+
+```bash
+git switch main # Switch back to the main branch
+git pull # Download latest changes from GitHub to keep local main up to date
+git merge feature/footer # Merge the feature/footer branch changes into main
+git push # Upload the updated main branch to GitHub
+```
+
+**User_2** (the collaborator):
+
+1. Download the latest changes:
+
+```bash
+git pull # Download and merge the latest changes from GitHub into your local branch
+```
+
+2. Open `hello_world.py`. The `show_footer` function that User_1 added is now in your local copy.
+
+2. Compare with your previous version:
+
+```bash
+git log --oneline    # see the new commit from User_1
+git log --oneline -2  # see the last two commits to verify User_1's changes
+```
+
+### 17.4 Generate and resolve a code conflict (Optional / Stretch Goal)
+
+In this exercise, you and your classmate will practice handling a merge conflict: a standard situation in team development when two collaborators edit the same line of code at the same time.
+
+Rather than treating conflicts as errors, you will learn that they are simply Git's way of asking for a human decision. Working in pairs as User_1 and User_2, you will intentionally: 1. create overlapping changes in `hello_world.py`, 2. trigger the conflict during a merge, 3. use VS Code's visual tools to inspect and resolve the differences, 4. and push the unified final version to GitHub.
+
+⚠️ **Precondition for this exercise** 
+ 
+ 1. Start aligned: Both users must begin with the exact same code version on `main`.
+ 2. User_1 acts, User_2 waits: User 1 creates a branch, modifies `hello_world.py`, merges back to main, and pushes to GitHub. During this time, User_2 must remain paused and must NOT run `git pull`.
+3. User_2 branches from the old state: User_2 creates a new branch from their local, outdated main and edits the exact same line.
+
+> ❓ **Why this works:** Because User_2 branches from the original code without User_1's updates, both branches modify the same line from different points in history, forcing Git to flag a conflict during the merge.
+
+
+
+
+![Merge conflict diagram](img/git-merge-conflict.svg)
+
+> 🔧 **Your turn (both students, step by step):** follow the instructions carefully. User_1 goes first, then User_2.
+ 
+Now both students will edit the **same line** of the **same file** on different branches, creating a conflict.
+
+**User_1** creates a branch and changes the greeting message:
+
+![User_1 creates branch and merges](img/git-conflict-step1.svg)
+
+```bash
+git switch -c feature/greet-a    # create a new branch and switch to it
+```
+
+Edit `hello_world.py`, change the return value of the `greet` function:
+
+```python
+def greet(name):
+    """Return a welcome message for the given name."""
+    return f"Welcome, {name}! Glad to have you here."
+```
+
+```bash
+git add .                              # stage changes
+git commit -m "Change greeting to Welcome message"   # commit locally
+git push -u origin feature/greet-a     # push branch to GitHub
+git switch main                        # switch back to main
+git pull                               # get latest remote changes
+git merge feature/greet-a              # merge the branch into main
+git push                               # push updated main to GitHub
+```
+
+**User_2** creates a different branch and changes the **same line** (User_2 has NOT pulled User_1's changes yet, which is what will cause the conflict):
+
+![User_2 branches from old main](img/git-conflict-step2.svg)
+
+```bash
+git switch -c feature/greet-b
+```
+
+Edit `hello_world.py`, change the return value of the **same** `greet` function:
+
+```python
+def greet(name):
+    """Return a welcome message for the given name."""
+    return f"Hey {name}! Ready to learn Git?"
+```
+
+```bash
+git add .                               # Stage the modified hello_world.py for commit
+git commit -m "Change greeting to casual style" # Save the change to the feature/greet-b branch history
+git push -u origin feature/greet-b      # Upload the feature/greet-b branch to GitHub and set tracking
+```
+
+![User_2 tries to merge: conflict](img/git-conflict-step3.svg)
+
+Now User_2 tries to merge. First, make sure all changes on your branch are committed (run `git status` and verify it shows "nothing to commit, working tree clean"). If you have uncommitted changes, Git will block the branch switch. Then:
+
+```bash
+git switch main
+git pull                   # get User_1's changes first
+git merge feature/greet-b
+```
+
+**Git reports a conflict:**
+
+```
+Auto-merging hello_world.py
+CONFLICT (content): Merge conflict in hello_world.py
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+**What the file looks like now:**
+
+```python
+<<<<<<< HEAD
+    return f"Welcome, {name}! Glad to have you here."
+=======
+    return f"Hey {name}! Ready to learn Git?"
+>>>>>>> feature/greet-b
+```
+
+**How to read this:**
+
+| Marker | Meaning |
+| -------- | --------- |
+| `<<<<<<< HEAD` | Start of the version currently in `main` |
+| `=======` | Separator between the two versions |
+| `>>>>>>> feature/greet-b` | End of the version from your branch |
+
+**How to resolve it: (User 2)**
+
+1. Open `hello_world.py` in VS Code. Because the file contains conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`), VS Code **automatically** detects the conflict and highlights the two versions with colored backgrounds (green for your current branch, blue for the incoming branch). No extension is needed, this is a built-in feature. You will also see clickable text buttons above the conflict: **Accept Current Change**, **Accept Incoming Change**, and **Accept Both Changes**.
+2. **Decide** which version to keep. You have two options:
+   - **Click one of the buttons** (fastest): VS Code removes the conflict markers and keeps the version you chose.
+   - **Edit manually**: delete the markers yourself and write the final version. This is useful when you want to combine both changes. For example:
+
+```python
+    return f"Welcome, {name}! Ready to learn Git?"
+```
+
+3. If you edited manually, make sure you have **deleted** all the conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`). No markers should remain in the file.
+4. Save the file.
+5. Complete the merge:
+
+```bash
+git add hello_world.py
+git commit -m "Resolve greeting conflict: combine both versions"
+git push
+```
+
+![After resolution: clean merge](img/git-conflict-step4.svg)
+
+**Key takeaway:** Conflicts are not errors. They are Git asking you to make a decision because two people changed the same thing. Read the markers, choose the correct code, remove the markers, and commit.
+
+[↑ Back to contents](#contents)
+
+---
+
+## 18. Common problems
 
 ### Problem 1: Push rejected (remote is ahead)
 
@@ -934,10 +1394,10 @@ If you need to see or restore a previous version of a file:
 git log --oneline
 
 # See a specific old version of a file (does NOT change your current file)
-git show abc1234:index.html
+git show abc1234:hello_world.py
 
 # Restore a file to a previous version
-git restore --source=abc1234 index.html
+git restore --source=abc1234 hello_world.py
 ```
 
 Replace `abc1234` with the commit ID from `git log`.
@@ -946,228 +1406,16 @@ Replace `abc1234` with the commit ID from `git log`.
 
 ---
 
-## 17. Working with teams
+### 📦 Part 3 deliverable
 
-Now you will work with the classmate you invited in section 7.
+Your professor has been invited as a collaborator with **Read** access to your group's private repository. They will verify:
 
-### 17.1 Verify the invitation
+- The repository is **private** and named with your group identifier (e.g. `IntroGit_G01`).
+- The commit history shows contributions from **all group members** (multiple authors).
+- At least one branch was created, used, and merged into `main`.
+- (If the conflict exercise was completed) A merge conflict was resolved.
 
-> 🔧 **Your turn (both students):** verify you have both repositories ready before continuing.
-
-Both students should have:
-
-- Their **own** repository (`IntroGit_Uxxx`) where they are the owner.
-- An **invitation** to their classmate's repository where they are a collaborator.
-
-If you have not invited anyone yet, go back to section 7 and do it now.
-
-### 17.2 Clone your classmate's repository
-
-> 🔧 **Your turn:** clone the repository your classmate invited you to.
-
-You will now clone the repository that your classmate owns (the one they invited you to):
-
-```bash
-mkdir -p ~/Documents/git-projects
-cd ~/Documents/git-projects
-git clone https://github.com/CLASSMATE_USERNAME/IntroGit_Uyyy.git
-cd IntroGit_Uyyy
-```
-
-You now have a local copy of their project.
-
-> **Directory check:** you now have two projects inside `~/Documents/git-projects/`: your own (`IntroGit_Uxxx`) and your classmate's (`IntroGit_Uyyy`). Before running Git commands, check you are in the correct repository:
->
-> ```
-> pwd              # confirm the folder
-> git remote -v    # confirm which GitHub repository this clone points to
-> ```
-
-### 17.3 One person modifies, the other syncs
-
-> 🔧 **Your turn (coordinate with your classmate):** User_1 does the steps below first, then User_2 syncs.
-
-![Collaboration flow: push and pull](img/git-collaboration-flow.svg)
-
-> **Before you start:** run `pwd` in your terminal to confirm you are inside the correct repository folder (`IntroGit_Uxxx`, not `IntroGit_Uyyy`).
-
-**User_1** (the repository owner):
-
-1. Create a branch and add a new section to `index.html`:
-
-```bash
-git switch -c feature/footer
-```
-
-Add this before `</body>`:
-
-```html
-    <footer>
-        <p>© 2026 - Introduction to Programming, UPF</p>
-    </footer>
-```
-
-1. Commit and push:
-
-```bash
-git add . # Stage all local changes (modified and new files) for the commit
-git commit -m "Add footer section" # Save a local commit snapshot with a descriptive message
-git push -u origin feature/footer # Upload the branch to GitHub and set upstream tracking
-```
-
-1. Merge into main:
-
-```bash
-git switch main # Switch back to the main branch
-git pull # Download latest changes from GitHub to keep local main up to date
-git merge feature/footer # Merge the feature/footer branch changes into main
-git push # Upload the updated main branch to GitHub
-```
-
-**User_2** (the collaborator):
-
-1. Download the latest changes:
-
-```bash
-git pull # Download and merge the latest changes from GitHub into your local branch
-```
-
-1. Open `index.html`. The footer that User_1 added is now in your local copy.
-
-2. Compare with your previous version:
-
-```bash
-git log --oneline    # see the new commit from User_1
-git log --oneline -2  # see the last two commits to verify User_1's changes
-```
-
-### 17.4 Generate and resolve a code conflict (Optional / Stretch Goal)
-
-In this exercise, you and your classmate will practice handling a merge conflict: a standard situation in team development when two collaborators edit the same line of code at the same time.
-
-Rather than treating conflicts as errors, you will learn that they are simply Git's way of asking for a human decision. Working in pairs as User_1 and User_2, you will intentionally: 1. create overlapping changes in `index.html`, 2. trigger the conflict during a merge, 3. use VS Code's visual tools to inspect and resolve the differences, 4. and push the unified final version to GitHub.
-
-⚠️ **Precondition for this exercise** 
- 
- 1. Start aligned: Both users must begin with the exact same code version on `main`.
- 2. User_1 acts, User_2 waits: User 1 creates a branch, modifies `index.html`, merges back to main, and pushes to GitHub. During this time, User_2 must remain paused and must NOT run `git pull`.
-3. User_2 branches from the old state: User_2 creates a new branch from their local, outdated main and edits the exact same line.
-
-> ❓ **Why this works:** Because User_2 branches from the original code without User_1's updates, both branches modify the same line from different points in history, forcing Git to flag a conflict during the merge.
-
-
-
-
-![Merge conflict diagram](img/git-merge-conflict.svg)
-
-> 🔧 **Your turn (both students, step by step):** follow the instructions carefully. User_1 goes first, then User_2.
- 
-Now both students will edit the **same line** of the **same file** on different branches, creating a conflict.
-
-**User_1** creates a branch and changes the page title:
-
-![User_1 creates branch and merges](img/git-conflict-step1.svg)
-
-```bash
-git switch -c feature/title-a    # create a new branch and switch to it
-```
-
-Edit `index.html`, change the `<h1>`:
-
-```html
-    <h1>Welcome to our Project!</h1>
-```
-
-```bash
-git add .                              # stage changes
-git commit -m "Change title to Welcome message"   # commit locally
-git push -u origin feature/title-a     # push branch to GitHub
-git switch main                        # switch back to main
-git pull                               # get latest remote changes
-git merge feature/title-a              # merge the branch into main
-git push                               # push updated main to GitHub
-```
-
-**User_2** creates a different branch and changes the **same line** (User_2 has NOT pulled User_1's changes yet, which is what will cause the conflict):
-
-![User_2 branches from old main](img/git-conflict-step2.svg)
-
-```bash
-git switch -c feature/title-b
-```
-
-Edit `index.html`, change the `<h1>`:
-
-```html
-    <h1>Git & GitHub Demo Page</h1>
-```
-
-```bash
-git add .                               # Stage the modified index.html for commit
-git commit -m "Change title to Git demo" # Save the change to the feature/title-b branch history
-git push -u origin feature/title-b      # Upload the feature/title-b branch to GitHub and set tracking
-```
-
-![User_2 tries to merge: conflict](img/git-conflict-step3.svg)
-
-Now User_2 tries to merge. First, make sure all changes on your branch are committed (run `git status` and verify it shows "nothing to commit, working tree clean"). If you have uncommitted changes, Git will block the branch switch. Then:
-
-```bash
-git switch main
-git pull                   # get User_1's changes first
-git merge feature/title-b
-```
-
-**Git reports a conflict:**
-
-```
-Auto-merging index.html
-CONFLICT (content): Merge conflict in index.html
-Automatic merge failed; fix conflicts and then commit the result.
-```
-
-**What the file looks like now:**
-
-```html
-<<<<<<< HEAD
-    <h1>Welcome to our Project!</h1>
-=======
-    <h1>Git & GitHub Demo Page</h1>
->>>>>>> feature/title-b
-```
-
-**How to read this:**
-
-| Marker | Meaning |
-| -------- | --------- |
-| `<<<<<<< HEAD` | Start of the version currently in `main` |
-| `=======` | Separator between the two versions |
-| `>>>>>>> feature/title-b` | End of the version from your branch |
-
-**How to resolve it: (User 2)**
-
-1. Open `index.html` in VS Code. Because the file contains conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`), VS Code **automatically** detects the conflict and highlights the two versions with colored backgrounds (green for your current branch, blue for the incoming branch). No extension is needed, this is a built-in feature. You will also see clickable text buttons above the conflict: **Accept Current Change**, **Accept Incoming Change**, and **Accept Both Changes**.
-2. **Decide** which version to keep. You have two options:
-   - **Click one of the buttons** (fastest): VS Code removes the conflict markers and keeps the version you chose.
-   - **Edit manually**: delete the markers yourself and write the final version. This is useful when you want to combine both changes. For example:
-
-```html
-    <h1>Welcome to our Git & GitHub Demo!</h1>
-```
-
-3. If you edited manually, make sure you have **deleted** all the conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`). No markers should remain in the file.
-4. Save the file.
-5. Complete the merge:
-
-```bash
-git add index.html
-git commit -m "Resolve title conflict: combine both versions"
-git push
-```
-
-![After resolution: clean merge](img/git-conflict-step4.svg)
-
-**Key takeaway:** Conflicts are not errors. They are Git asking you to make a decision because two people changed the same thing. Read the markers, choose the correct code, remove the markers, and commit.
+No link needs to be sent: your professor already has access through the collaborator invitation.
 
 [↑ Back to contents](#contents)
 
@@ -1189,6 +1437,7 @@ git push
 | `git switch -c name` | Create a new branch and switch to it |
 | `git switch main` | Switch back to main |
 | `git merge name` | Merge a branch into the current branch |
+| `git remote set-url origin <url>` | Change the remote URL your clone points to |
 
 [↑ Back to contents](#contents)
 
@@ -1278,7 +1527,7 @@ Changes to be committed:
         new file:   .venv/bin/python3          ← 200 MB of binaries
         new file:   .venv/lib/site-packages/...← thousands of files
         new file:   .env                       ← your passwords!
-        new file:   index.html                 ← the only file you actually want
+        new file:   hello_world.py              ← the only file you actually want
 ```
 
 ### What happens with a `.gitignore`
@@ -1290,12 +1539,12 @@ git status
 
 ```
 Changes to be committed:
-        new file:   index.html                 ← only your code
+        new file:   hello_world.py              ← only your code
 ```
 
 > **Rule of thumb:** if a file can be regenerated (compiled code, installed packages, build outputs) or is personal to your machine (IDE settings, OS metadata), it goes in `.gitignore`. Never commit secrets in the first place. `.gitignore` helps prevent accidental commits, but it does not remove secrets already in Git history. If a secret is accidentally committed, revoke it immediately and generate a new one.
 
-> **Tip:** GitHub offers ready-made `.gitignore` templates for most languages. When you create a repository (section 6), you can select one from the dropdown. For Python projects, choose the **Python** template.
+> **Tip:** GitHub offers ready-made `.gitignore` templates for most languages. When you create a repository (section 7), you can select one from the dropdown. For Python projects, choose the **Python** template.
 
 ### What if I already committed files I should have ignored?
 
@@ -1400,10 +1649,10 @@ A Pull Request is a GitHub feature (not a Git feature) that says: "I have change
 1. Push your branch to GitHub:
 
 ```bash
-git push -u origin feature/add-menu
+git push -u origin feature/add-utils
 ```
 
-1. Go to your repository on GitHub. You will see a banner: **"feature/add-menu had recent pushes. Compare & pull request."** Click it.
+1. Go to your repository on GitHub. You will see a banner: **"feature/add-utils had recent pushes. Compare & pull request."** Click it.
 
 2. Fill in the PR form:
    - **Title:** a short description of the changes (e.g. "Add navigation menu").
@@ -1456,10 +1705,10 @@ This undoes the last commit but keeps your changes staged. You can then edit and
 The older way to restore a file to a previous version:
 
 ```bash
-git checkout abc1234 -- index.html
+git checkout abc1234 -- hello_world.py
 ```
 
-This does the same as `git restore --source=abc1234 index.html`. The modern `git restore` is preferred because `git checkout` is used for many different things (switching branches, restoring files), which can be confusing.
+This does the same as `git restore --source=abc1234 hello_world.py`. The modern `git restore` is preferred because `git checkout` is used for many different things (switching branches, restoring files), which can be confusing.
 
 ---
 
