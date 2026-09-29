@@ -126,31 +126,31 @@ Imagine you are working on a lab assignment with a classmate. After a few days, 
 
 ```
 lab_project/
-├── lab.cpp
-├── lab_v2.cpp
-├── lab_final.cpp
-├── lab_final_FINAL.cpp
-├── lab_definitive.cpp
-├── lab_definitivedefinitive.cpp
-├── lab_definitive2.cpp
-├── lab_deliverable.cpp
-├── lab_deliverable_FIXED.cpp
-└── lab_deliverable_FIXED_user2.cpp
+├── lab.py
+├── lab_v2.py
+├── lab_final.py
+├── lab_final_FINAL.py
+├── lab_definitive.py
+├── lab_definitivedefinitive.py
+├── lab_definitive2.py
+├── lab_deliverable.py
+├── lab_deliverable_FIXED.py
+└── lab_deliverable_FIXED_user2.py
 ```
 
 Now answer these questions:
 
 1. **Which file is the real last version?** You don't know. Nobody knows.
-2. **What changed between `lab_final.cpp` and `lab_definitive.cpp`?** You would have to open both and compare them line by line.
-3. **Your classmate edited `lab_definitive.cpp` while you edited `lab_definitive2.cpp`.** Which one has the correct changes? Both? Neither?
+2. **What changed between `lab_final.py` and `lab_definitive.py`?** You would have to open both and compare them line by line.
+3. **Your classmate edited `lab_definitive.py` while you edited `lab_definitive2.py`.** Which one has the correct changes? Both? Neither?
 4. **You accidentally deleted a function that worked yesterday.** How do you get it back? You can't, unless you kept a separate copy.
 
 ### What Git solves
 
-With Git, **you have one file** (`lab.cpp`), and Git keeps the full history of every change internally:
+With Git, **you have one file** (`lab.py`), and Git keeps the full history of every change internally:
 
 ```
-lab.cpp
+lab.py
   ├── commit 1: "Initial version"           (Sept 10, 14:00)
   ├── commit 2: "Add input validation"       (Sept 10, 16:30)
   ├── commit 3: "Fix loop bug"               (Sept 11, 09:15)
@@ -870,7 +870,7 @@ The repo owner:
 4. Change the name from `IntroGit_Uxxx` to your group identifier (e.g. `IntroGit_G01`). Your professor will tell you which group identifier to use.
 5. Click **Rename**.
 
-![Renaming a repository on GitHub](img/RenamingRepo.png)
+<img src="img/RenamingRepo.png" alt="Renaming a repository on GitHub" style="max-width: 400px; height: auto;"><br>
 
 > 💡 GitHub automatically redirects the old URL to the new one, so any existing links will still work. However, your local clone still points to the old URL and needs to be updated (next step).
 
@@ -906,9 +906,9 @@ The repo is currently public (from Part 2). For the collaborative part, make it 
 4. Click **Change visibility**.
 5. Select **Private** and confirm.
 
-![Change visibility in Settings](img/Change_Permissions_Settings.png)
+<img src="img/Change_Permissions_Settings.png" alt="Change visibility in Settings" style="max-width: 400px; height: auto;"><br>
 
-![Danger Zone: change visibility](img/Change_Permissions_DangerZone.png)
+<img src="img/Change_Permissions_DangerZone.png" alt="Danger Zone: change visibility" style="max-width: 400px; height: auto;"><br>
 
 > ⚠️ Once the repository is private, only collaborators (people you explicitly invite) can see it.
 
