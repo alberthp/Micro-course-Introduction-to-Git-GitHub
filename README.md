@@ -990,6 +990,8 @@ git switch -c feature/add-utils
 
 This creates a branch called `feature/add-utils` and switches to it. You are no longer on `main`.
 
+<img src="img/Switched_to_a_new_branch.png" alt="Terminal output after switching to a new branch" style="max-width: 400px; height: auto;"><br>
+
 - `switch` is the command for changing branches.
 - `-c` means "create" (create the branch and switch to it in one step).
 
@@ -1062,6 +1064,10 @@ Let's break down each part of this command:
 - `origin`: the nickname for your remote repository on GitHub (set automatically when you cloned).
 - `feature/add-utils`: the name of the branch you are pushing. This creates the branch on GitHub if it does not exist yet.
 
+After you push, GitHub detects the new branch and offers to open a pull request:
+
+<img src="img/Compare&PullRequest.png" alt="GitHub detects the new branch and offers to open a pull request" style="max-width: 400px; height: auto;"><br>
+
 Review in your repository web that, now, there are two branches:
 
 <img src="img/merge_in_githubweb.png" alt="Copy repository URL from GitHub" style="max-width: 400px; height: auto;"><br>
@@ -1074,7 +1080,7 @@ If desired, in GitHub web, you can review changes of the branch with respect `ma
 
 Then, you will be able to review changes directly applied to code:
 
-<img src="img/merge_in_github_comparecode_web.png" alt="Copy repository URL from GitHub" style="max-width: 400px; height: auto;"><br>
+<img src="img/FilesChanged.png" alt="Pull request diff showing the count_words function added to hello_world.py" style="max-width: 400px; height: auto;"><br>
 
 Once you are happy with the changes, bring them into `main`:
 
@@ -1661,9 +1667,17 @@ git push -u origin feature/add-utils
 
 3. Click **Create pull request**.
 
+<img src="img/CreatePullRequest.png" alt="Creating a pull request on GitHub" style="max-width: 400px; height: auto;"><br>
+
 4. Your classmate (or you, for practice) reviews the changes on GitHub: the PR page shows the diff, and reviewers can leave comments on specific lines.
 
 5. When approved, click **Merge pull request** on GitHub, then **Confirm merge**.
+
+<img src="img/NoConflictsInMerge.png" alt="No conflicts with base branch, ready to merge" style="max-width: 400px; height: auto;"><br>
+
+<img src="img/ConfirmMerge.png" alt="Confirm merge screen with commit message" style="max-width: 400px; height: auto;"><br>
+
+<img src="img/MergedConfirm.png" alt="Pull request successfully merged" style="max-width: 400px; height: auto;"><br>
 
 6. The branch is now merged into `main` on GitHub. Pull the updated `main` locally:
 
