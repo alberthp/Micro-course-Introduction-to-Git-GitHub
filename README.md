@@ -400,8 +400,6 @@ Your professor will verify that your account exists and uses your `@upf.edu` ema
 
 > **Windows users reminder:** all terminal commands in Part 2 must be run in **Git Bash**, not in Command Prompt or PowerShell. If you are not sure how to open it, review [section 6](#6-the-terminal).
 
-> 🔧 **First step:** before creating your own repository, go to the course repository on GitHub and click the **Fork** button (top right). This creates a copy of the course materials in your own GitHub account. You will then clone from your own fork, not from the instructor's account. This is how open-source collaboration works: fork first, then clone your fork.
-
 ---
 
 ## 7. Create a public repository
